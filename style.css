@@ -1,5 +1,8 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-*, :after, :before { box-sizing: border-box; }
+
+*, :after, :before {
+    box-sizing: border-box;
+}
 
 /*
  BARVY
@@ -7,16 +10,17 @@
  Jedeme retro cernobile, dnes barvy nepotrebujeme.
 */
 
-
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background-color: #f5f5f5;
     font-family: 'Merriweather', serif;
     font-size: 16px;
     line-height: 1.6;
+    min-width: 499px;
 }
 
+/* MOBIL*/
 
 /* HLAVICKA */
 
@@ -24,20 +28,258 @@ body {
     font-family: 'Raleway', serif;
 }
 
+.hlavicka {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/island-hlavicka.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+.titulek {
+    font-size: 50px;
+    margin: 0;
+}
+
+.autor {
+    font-style: italic;
+    color: lightgray
+}
+
+
 
 /* MENU */
 
+.menu {
+    padding: 40px;
+    font-family: 'Raleway', serif;
+    font-weight: 700;
+    margin: 0;
+}
 
+.menu li {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 0.2px solid lightgray;
+    padding: 10px;
+}
 
+.menu a {
+    text-decoration: none;
+    color: silver;
+}
+
+.menu a:hover {
+    color: black;
+}
 
 /* OBSAH */
+
+
+p {
+    padding: 20px 30px 0 30px;
+    margin: 0;
+}
+
+
+h2 {
+    text-decoration: none;
+    position: relative;
+    padding: 30px;
+    font-family: 'Raleway', serif;
+    font-weight: 700;
+
+}
+
+h2::after {
+    position: absolute;
+    content: '';
+    height: 5px;
+    bottom: -3px;
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: 15%;
+    background: cornflowerblue;
+}
+
+img {
+    max-width: 100%;
+    padding-top: 30px;
+}
+
+.popisek {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: grey;
+    font-size: 12px;
+}
+
+.popisek a {
+    color: grey;
+}
 
 
 
 
 /* FOTOGALERIE */
 
+.galerie {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.galerie img {
+    width: 499px;
+}
 
+.foto .popisek {
+    font-weight: bold;
+}
+
+.popisek-copy {
+    font-weight: normal;
+}
 
 /* PATICKA */
+
+.paticka {
+    background-image: linear-gradient(lightgrey, white);
+    box-shadow: 1 1 grey;
+    padding: 10px;
+    margin: 30px 0 30px 0;
+    color: grey;
+    font-size: 14px;
+}
+
+.paticka a {
+    color: grey;
+}
+
+.copyright {
+    text-align: center;
+    color: grey;
+    font-size: 14px;
+}
+
+/* TABLET */
+
+@media (min-width: 500px) and (max-width: 999px) {
+
+    /* MENU */
+
+    .menu {
+        display: flex;
+        justify-content: space-around;
+    }
+    .menu li {
+        border: none;
+    }
+
+/* OBSAH */
+
+    .popisek {
+        text-align: right;
+        color: white;
+        transform: translate(-20px, -40px)
+    }
+    .popisek a {
+        color: white;
+    }
+
+    
+/* FOTOGALERIE */
+
+
+    .galerie {
+        display: flex;
+    }
+    .foto {
+        flex: 0 0 50%;
+        
+    } 
+    .foto img {
+        padding: 0;
+    }
+    .foto:hover img {
+        transform: scale(1.1);
+    }
+    .foto:hover .popisek {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        transform: translateY(10px);
+        transition: transform 0.3s ease-in-out;
+    }
+    .foto .popisek {
+        
+        display: none;
+        text-align: center;
+        transform: translateY(-85px);
+        transition: background-color 0.5s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px 0 20px 0;
+    }
+}
+
+/* PC */
+
+@media (min-width: 1000px) {
+
+    /* HLAVIČKA */
+    .hlavicka {
+        width: 100%;
+        padding-bottom: 100px;
+    }
+
+    /* MENU */
+
+    .menu {
+        float: left;
+        padding-bottom: 140px;
+    }
+    .menu li {
+        text-align: left;
+    }
+
+/* OBSAH */
+
+    .obsah {
+        width: 960px;
+        background-color: white;
+        margin: -40px auto;
+    }
+   
+    .popisek {
+        text-align: right;
+        color: white;
+        transform: translate(-20px, -40px)
+    }
+    .popisek a {
+        color: white;
+    }
+    .proc_jet {
+        padding-right: 250px;
+    }
+    .co_videt {
+        padding-left: 250px;
+    }
+
+
+
+    /* FOTOGALERIE */
+    .galerie {
+        display: flex;
+    }
+    .foto {
+        flex: 0 0 calc(100% / 3);
+    }
+}
