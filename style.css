@@ -56,7 +56,7 @@ body {
     content: '';
     left: 45%;
     top: 0;
-    width: 10%; 
+    width: 10%;
     border: 1px solid white;
 }
 
@@ -86,7 +86,10 @@ body {
 
 .menu a:hover {
     color: black;
+    font-weight: 700;
 }
+
+
 
 /* OBSAH */
 
@@ -130,6 +133,8 @@ img {
     color: grey;
 }
 
+
+
 /* FOTOGALERIE */
 
 .galerie {
@@ -148,6 +153,8 @@ img {
 .popisek-copy {
     font-weight: normal;
 }
+
+
 
 /* PATICKA */
 
@@ -170,26 +177,37 @@ img {
     font-size: 14px;
 }
 
+
+
 /* TABLET */
 
-@media (min-width: 500px)  {
+@media (min-width: 500px) and (max-width: 999px) {
+
 
     /* MENU */
-
-    /* Lze nějak udělat ohraničení v menu pokud ho mám udělané flexboxem? 
-    Nebo je potřeba to předělat na display: inline-block a potom ohraničení pomocí border? */
+    /* Nedaří se mi položky v menu/ve flexboxu zarovnat správně na střed */
 
     .menu {
         display: flex;
         justify-content: space-around;
+        border-top: 0.5px solid lightgray;
+        border-bottom: 0.5px solid lightgray;
+        margin: 30px;
+        padding: 0;
     }
     .menu li {
-        border: none;
+        padding: 10px;
     }
+    .menu li:nth-child(odd) {
+        border-right: 0.5px solid lightgray;
+    }
+    .menu li:nth-child(2) {
+        border-right: 0.5px solid lightgray;
+    }
+
 
 
     /* OBSAH */
-
     .popisek {
         text-align: right;
         color: white;
@@ -200,31 +218,24 @@ img {
     }
 
 
-    /* FOTOGALERIE */
 
-     .galerie {
+    /* FOTOGALERIE */
+    .galerie {
         display: flex;
     }
-   
-
     .foto {
         flex: 0 0 50%;
         position: relative;
         margin: 0;
-        
+        overflow: hidden;
     }
-
-    /* Nedaří se mi dosáhnout toho, aby se popisek a fotka zvětšovali současně. 
-    Nyní to dělá to, že se první zvětší popisek a pak až fotka. Nepůsobí to konzistentně. Jak na to? */
-
     .foto img {
         width: 100%;
         height: auto;
         display: block;
         transition: transform 0.3s ease-in-out;
         padding: 0;
-        }
-
+    }
     .foto .popisek {
         position: absolute;
         display: none;
@@ -236,27 +247,22 @@ img {
         transition: transform 0.3s ease-in-out;
         text-align: center;
         color: #fff;
-      
     }
-
-   
     .foto:hover .popisek {
         display: block;
         transform: scale(1.1);
-       
     }
-
     .foto:hover img {
         transform: scale(1.1);
     }
-
-    
-     
 }
+
+
 
 /* PC */
 
 @media (min-width: 1000px) {
+
 
     /* HLAVIČKA */
 
@@ -265,6 +271,8 @@ img {
         padding-bottom: 100px;
     }
 
+
+
     /* MENU */
 
     .menu {
@@ -272,17 +280,16 @@ img {
         float: left;
         padding-bottom: 140px;
     }
-
     .menu li {
         text-align: left;
-        border-bottom: 0.2px solid lightgray; ;
+        border-bottom: 0.2px solid lightgray;
     }
-
     .menu a {
         display: block;
     }
 
 
+    
     /* OBSAH */
 
     .obsah {
@@ -306,6 +313,7 @@ img {
     }
 
 
+
     /* FOTOGALERIE */
 
     .galerie {
@@ -313,5 +321,36 @@ img {
     }
     .foto {
         flex: 0 0 calc(100% / 3);
+        position: relative;
+        margin: 0;
+        overflow: hidden;
     }
+    .foto img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+        padding: 0;
+    }
+    .foto .popisek {
+        position: absolute;
+        display: none;
+        width: 100%;
+        bottom: -7px;
+        margin: 0;
+        padding: 20px 0 20px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease-in-out;
+        text-align: center;
+        color: #fff;
+    }
+    .foto:hover .popisek {
+        display: block;
+        transform: scale(1.1);
+    }
+    .foto:hover img {
+        transform: scale(1.1);
+    }
+}
+
 }
