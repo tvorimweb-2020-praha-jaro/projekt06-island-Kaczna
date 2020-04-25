@@ -30,7 +30,7 @@ body {
     margin: 0;
 }
 
-.hlavicka {
+header {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/island-hlavicka.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -158,7 +158,7 @@ img {
 
 /* PATICKA */
 
-.paticka {
+footer {
     background-image: linear-gradient(lightgrey, white);
     box-shadow: 1 1 grey;
     padding: 10px;
@@ -167,7 +167,7 @@ img {
     font-size: 14px;
 }
 
-.paticka a {
+footer a {
     color: grey;
 }
 
@@ -185,7 +185,6 @@ img {
 
 
     /* MENU */
-    /* Nedaří se mi položky v menu/ve flexboxu zarovnat správně na střed */
 
     .menu {
         display: flex;
@@ -197,6 +196,7 @@ img {
     }
     .menu li {
         padding: 10px;
+        flex-basis: 25%;
     }
     .menu li:nth-child(odd) {
         border-right: 0.5px solid lightgray;
@@ -208,6 +208,7 @@ img {
 
 
     /* OBSAH */
+
     .popisek {
         text-align: right;
         color: white;
@@ -220,6 +221,7 @@ img {
 
 
     /* FOTOGALERIE */
+    
     .galerie {
         display: flex;
     }
@@ -266,10 +268,16 @@ img {
 
     /* HLAVIČKA */
 
-    .hlavicka {
+    header {
         width: 100%;
         padding-bottom: 100px;
     }
+
+    .perex {
+        width: 960px;
+        text-align: center;
+        display: inline-block;
+        }
 
 
 
@@ -292,6 +300,7 @@ img {
     
     /* OBSAH */
 
+   
     .obsah {
         width: 960px;
         background-color: white;
@@ -353,4 +362,3 @@ img {
     }
 }
 
-}
